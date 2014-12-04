@@ -5,7 +5,7 @@ public class Contacto {
 	private String tlf;
 	private String email;
 
-	//getters
+	// getters
 	public String getNombreContacto(){
 		return this.nombreContacto;
 	}
@@ -18,7 +18,7 @@ public class Contacto {
 		return this.email;
 	}
 
-	//setters
+	// setters
 	public void setNombreContacto(String nombre){
 		this.nombreContacto = nombre;
 	}
