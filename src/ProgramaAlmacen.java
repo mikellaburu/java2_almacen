@@ -22,12 +22,33 @@ public class ProgramaAlmacen {
 			System.out.println("Leer el contenido del fichero, identificar los objetos y atributos, y mostrarlos por pantalla\n");
 	
 			Scanner leerFichero = new Scanner (archivo);
+			ArrayList <Distribuidor> listaDistribuidores = new ArrayList <Distribuidor>();
 
 			int cont = 1;
 			while (leerFichero.hasNextLine()) {
 				String fila = leerFichero.nextLine();//lerro bat irakurri fitxategitik eta string moduan gorde
 				String [] atributos = fila.split("; ");//atributuak koma eta hutsuneaz bereiztu eta string motako array batean gorde 
+				Distribuidor dist = new Distribuidor ();
+				dist.setNombre(atributos[0]);
+				dist.setCIF(atributos[1]);
 				
+				Direccion dir = new Direccion();
+				String [] atribDireccion = atributos[2].split("\\*");
+				dir.setPueblo(atribDireccion[0]);
+				dir.setCalle(atribDireccion[1]);
+				dir.setNumero(Integer.parseInt(atribDireccion[2]));
+				dir.setCP(atribDireccion[3]);
+				dist.setDireccion(dir);
+
+				Contacto contacto = new Contacto();
+				String [] atribContacto = atributos[3].split("\\*");
+				contacto.setNombreContacto(atribContacto[0]);
+				contacto.setTlf(atribContacto[1]);
+				contacto.setEmail(atribContacto[2]);
+				dist.setPersonaContacto(contacto);
+
+				listaDistribuidores.add(dist);
+				/*
 				System.out.println("Distribuidor "+cont);
 				System.out.println();
 				System.out.println("\tNombre: "+atributos[0]);
@@ -55,28 +76,23 @@ public class ProgramaAlmacen {
 				System.out.println();
 				System.out.println("\t\tE-mail: "+atribContacto[2]);
 				System.out.println();
+				
 
-
-				/*for (int i=0; i<atribDireccion.length; i++) {
-					
-					String [] atribIng = ingSeparados[i].split("\\*");
-					
-					if (Boolean.parseBoolean(atribIng[3])) {
-						System.out.println("\t\t"+atribIng[0]+", "+atribIng[1]+" gramo(s)");
-					}else{
-						System.out.println("\t\t"+atribIng[0]+", "+atribIng[2]+" unida(es)");
-					}
-				}
-				System.out.println();
-				System.out.println("\tPreparacion: "+atributos[2]);
-				System.out.println();*/
-				cont++;
+				
+				cont++;*/
 			}
 			leerFichero.close();
+			for (int i=0; i<listaDistribuidores.size(); i++) {
+				System.out.println(listaDistribuidores.get(i).getNombre());
+				System.out.println(listaDistribuidores.get(i).getCIF());
+				System.out.println(listaDistribuidores.get(i).getDireccion());
+				System.out.println(listaDistribuidores.get(i).getPersonaContacto());
+			}
+
 		} catch (Exception e) {
 				System.out.println("Error: "+e);
 		}
-
+		
 	} //fin main
 
 	
