@@ -49,13 +49,6 @@ public class ProgramaAlmacen {
 
 				listaDistribuidores.add(dist);
 				/*
-				System.out.println("Distribuidor "+cont);
-				System.out.println();
-				System.out.println("\tNombre: "+atributos[0]);
-				System.out.println();
-				System.out.println("\tCIF: "+atributos[1]);
-				System.out.println();
-
 				String [] atribDireccion = atributos[2].split("\\*");
 				System.out.println("\tDireccion:");
 
@@ -83,10 +76,24 @@ public class ProgramaAlmacen {
 			}
 			leerFichero.close();
 			for (int i=0; i<listaDistribuidores.size(); i++) {
-				System.out.println(listaDistribuidores.get(i).getNombre());
-				System.out.println(listaDistribuidores.get(i).getCIF());
-				System.out.println(listaDistribuidores.get(i).getDireccion());
-				System.out.println(listaDistribuidores.get(i).getPersonaContacto());
+				
+				System.out.println("Distribuidor "+(i+1)+":");
+				System.out.println("\tNombre: "+listaDistribuidores.get(i).getNombre());
+				System.out.println("\tCIF: "+listaDistribuidores.get(i).getCIF());
+				System.out.println("\tDireccion:");
+				Direccion dir1 = new Direccion();
+				dir1 = listaDistribuidores.get(i).getDireccion();
+				System.out.println("\t\tPueblo: " + dir1.getPueblo());
+				System.out.println("\t\tCalle: " + dir1.getCalle());
+				System.out.println("\t\tNumero: " + dir1.getNumero());
+				System.out.println("\t\tCodigo Postal: " + dir1.getCP());
+				System.out.println("\tContacto:");
+				Contacto contac1 = new Contacto();
+				contac1 = listaDistribuidores.get(i).getPersonaContacto();
+				System.out.println("\t\tNombre: " + contac1.getNombreContacto());
+				System.out.println("\t\tTelefono: " + contac1.getTlf());
+				System.out.println("\t\te-mail: " + contac1.getEmail());
+				
 			}
 
 		} catch (Exception e) {
