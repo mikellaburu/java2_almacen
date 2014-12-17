@@ -1,4 +1,4 @@
-public class leche {
+public class Leche {
 
 	// atributos
 	private String tipo;

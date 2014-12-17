@@ -1,2 +1,5 @@
 MRW; 1354246g; hernani*eziago*5*20120; Mikel*943553322*mikel@mrw.com; 
 Seur; 3538743e; donosti*igara*35*20021; Jon*943275689*jon@seur.com; 
+DHL; 438433q; martutene*pol.27*453*20045; David*943294545*david@dhl.com; 
+Correos; 4334133w; irun*behobia*231*20350; Anthony*943121212*anthony@correos.es; 
+Express; 9877756a; azpeitia*bronx*13*20730; Miguela*943458787*miguela@express.com; 

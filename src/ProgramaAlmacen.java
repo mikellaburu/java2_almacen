@@ -71,18 +71,17 @@ public class ProgramaAlmacen {
 				System.out.println("\t\te-mail: " + contac1.getEmail());
 				
 			}
-
+			
+			Scanner tecla = new Scanner(System.in);
+			
 			// Pedir 2 manzanas
 			ArrayList <Manzana> manzanas = new ArrayList <Manzana>();
-			Scanner tecla = new Scanner(System.in);
-			/*System.out.println("Cuantas lechugas quieres insertar?: ");
-			int opcion = tecla.nextInt();*/
 			//crear
 			for(int i=0; i<2; i++) {
 				System.out.println("Manzana"+(i+1)+":");
 				Manzana m1 = new Manzana();
 				System.out.println("Tipo de Manzana: ");
-				m1.setTipoLechuga(tecla.next());
+				m1.setTipoManzana(tecla.next());
 				System.out.println("Procedencia: ");
 				m1.setProcedencia(tecla.next());
 				System.out.println("Color: ");
@@ -117,33 +116,96 @@ public class ProgramaAlmacen {
 				Distribuidor d1 = new Distribuidor();
 				d1.setNombre(tecla.next());
 				for(int j=0; j<listaDistribuidores.size(); j++) {
-					if((listaDistribuidores.get(j).getNombre()).equalsIgnoreCase(distribuidor.getNombre())) {
+					if((listaDistribuidores.get(j).getNombre()).equalsIgnoreCase(d1.getNombre())) {
 						l1.setDistribuidor(listaDistribuidores.get(j));
 					}
 				}
 				lechugas.add(l1);
 			}
+			// Pedir 2 leches
+			ArrayList <Leche> leches = new ArrayList <Leche>();
+			//crear
+			for(int i=0; i<2; i++) {
+				System.out.println("Leche "+(i+1)+":");
+				Leche l1 = new Leche();
+				System.out.println("Tipo de lechuga: ");
+				l1.setTipo(tecla.next());
+				System.out.println("Procedencia: ");
+				l1.setProcedencia(tecla.next());
+				System.out.println("Precio €/l: ");
+				l1.setEurosLitro(tecla.nextDouble());
+				System.out.println("Distribuidor: ");
+				Distribuidor d1 = new Distribuidor();
+				d1.setNombre(tecla.next());
+				for(int j=0; j<listaDistribuidores.size(); j++) {
+					if((listaDistribuidores.get(j).getNombre()).equalsIgnoreCase(d1.getNombre())) {
+						l1.setDistribuidor(listaDistribuidores.get(j));
+					}
+				}
+				leches.add(l1);
+			}
+			// Mostrar manzanas
+			System.out.println("Manzana");
+			for (int i=0; i<manzanas.size(); i++){
+				System.out.println("Tipo: "+manzanas.get(i).getTipoManzana());
+				System.out.println("Procedencia: "+manzanas.get(i).getProcedencia());
+				System.out.println("Color: "+manzanas.get(i).getColor());
+				System.out.println("Precio €/kg: "+manzanas.get(i).getEurosKilo());
+				Distribuidor dis1 = manzanas.get(i).getDistribuidor();
+				System.out.println("Nombre del distribuidor: "+dis1.getNombre());
+				System.out.println("CIF: "+dis1.getCIF());
+				System.out.println("Direccion: ");
+				System.out.println("\tPueblo: "+(dis1.getDireccion()).getPueblo());
+				System.out.println("\tCalle: "+(dis1.getDireccion()).getCalle());
+				System.out.println("\tNumero: "+(dis1.getDireccion()).getNumero());
+				System.out.println("\tCodigo Postal: "+(dis1.getDireccion()).getCP());
+				System.out.println("Contacto: ");
+				System.out.println("\tNombre: "+(dis1.getPersonaContacto()).getNombreContacto());
+				System.out.println("\tTelefono: "+(dis1.getPersonaContacto()).getTlf());
+				System.out.println("\te-mail: "+(dis1.getPersonaContacto()).getEmail());
+		
+			}
 			// Mostrar lechugas
 			System.out.println("Lechugas:");
 			for (int i=0; i<lechugas.size(); i++){
 				System.out.println("Tipo: "+lechugas.get(i).getTipoLechuga());
-				System.out.println("Procedencia: "+lechugas.get(i).getProcediencia());
+				System.out.println("Procedencia: "+lechugas.get(i).getProcedencia());
 				System.out.println("Color: "+lechugas.get(i).getColor());
 				System.out.println("Precio €/Ud: "+lechugas.get(i).getEurosUnidad());
 				Distribuidor dis1 = lechugas.get(i).getDistribuidor();
 				System.out.println("Nombre del distribuidor: "+dis1.getNombre());
 				System.out.println("CIF: "+dis1.getCIF());
 				System.out.println("Direccion: ");
-				System.out.println("\tPueblo: "+(d1.getDireccion()).getPueblo());
-				System.out.println("\tCalle: "+(d1.getDireccion()).getCalle());
-				System.out.println("\tNumero: "+(d1.getDireccion()).getNumero());
-				System.out.println("\tCalle: "+(d1.getDireccion()).getCP());
+				System.out.println("\tPueblo: "+(dis1.getDireccion()).getPueblo());
+				System.out.println("\tCalle: "+(dis1.getDireccion()).getCalle());
+				System.out.println("\tNumero: "+(dis1.getDireccion()).getNumero());
+				System.out.println("\tCodigo Postal: "+(dis1.getDireccion()).getCP());
 				System.out.println("Contacto: ");
-				System.out.println("\tNombre: "+(d1.getPersonaContacto()).getNombreContacto());
-				System.out.println("\tTelefono: "+(d1.getPersonaContacto()).getTlf());
-				System.out.println("\te-mail: "+(d1.getPersonaContacto()).getEmail());
+				System.out.println("\tNombre: "+(dis1.getPersonaContacto()).getNombreContacto());
+				System.out.println("\tTelefono: "+(dis1.getPersonaContacto()).getTlf());
+				System.out.println("\te-mail: "+(dis1.getPersonaContacto()).getEmail());
 		
 			}
+			// Mostrar lechugas
+			System.out.println("Leches:");
+			for (int i=0; i<leches.size(); i++){
+				System.out.println("Tipo: "+leches.get(i).getTipo());
+				System.out.println("Procedencia: "+leches.get(i).getProcedencia());
+				System.out.println("Precio €/l: "+leches.get(i).getEurosLitro());
+				Distribuidor dis1 = leches.get(i).getDistribuidor();
+				System.out.println("Nombre del distribuidor: "+dis1.getNombre());
+				System.out.println("CIF: "+dis1.getCIF());
+				System.out.println("Direccion: ");
+				System.out.println("\tPueblo: "+(dis1.getDireccion()).getPueblo());
+				System.out.println("\tCalle: "+(dis1.getDireccion()).getCalle());
+				System.out.println("\tNumero: "+(dis1.getDireccion()).getNumero());
+				System.out.println("\tCodigo Postal: "+(dis1.getDireccion()).getCP());
+				System.out.println("Contacto: ");
+				System.out.println("\tNombre: "+(dis1.getPersonaContacto()).getNombreContacto());
+				System.out.println("\tTelefono: "+(dis1.getPersonaContacto()).getTlf());
+				System.out.println("\te-mail: "+(dis1.getPersonaContacto()).getEmail());
+		
+			}						
 
 		} catch (Exception e) {
 				System.out.println("Error: "+e);
